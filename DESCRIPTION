@@ -1,0 +1,12 @@
+Package: rdeck
+Title: An R Interface to 'deck.gl'
+Version: 0.0.0.9000
+Authors@R: person("Stefan", "Kuethe", email = "crazycapivara@gmail.com", role = c("aut", "cre"))
+Maintainer: Stefan Kuethe <crazycapivara@gmail.com>
+Description: Makes 'deck.gl' <https://deck.gl/> visualizations available in R.
+Imports:
+  htmlwidgets,
+  readr
+License: What license it uses
+Encoding: UTF-8
+LazyData: true

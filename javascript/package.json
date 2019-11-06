@@ -1,0 +1,19 @@
+{
+  "name": "rdeck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack src/index.js --mode production -o ../inst/htmlwidgets/rdeck.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "deck.gl"
+  ],
+  "author": "Stefan Kuethe",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
