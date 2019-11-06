@@ -5,18 +5,21 @@
 #' @import htmlwidgets
 #'
 #' @export
-rdeck <- function(script, data, width = NULL, height = NULL, elementId = NULL) {
+rdeck <- function(script, data, width = NULL, height = NULL, elementId = NULL, ...) {
 
   # forward options using x
   x = list(
     script = readr::read_file(script),
     data = data,
-    deckGLProperties = list(
-      mapboxAccessToken = "",
-      mapStyle = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
-      longitude = -122.45,
-      latitude = 37.8,
-      zoom = 10
+    deckGLProperties = utils::modifyList(
+      list(
+        mapboxAccessToken = "",
+        mapStyle = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+        longitude = -122.45,
+        latitude = 37.8,
+        zoom = 8
+      ),
+      list(...)
     ),
     props = list(
       df = inherits(data, "data.frame")
