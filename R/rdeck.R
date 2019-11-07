@@ -1,11 +1,17 @@
-#' <Add Title>
+#' Create a widget object
 #'
-#' <Add Description>
+#' @param script JavaScript file conatining the vizualisation function
+#' @param data data passed to the vizualisation function in the JavaScript file
+#' @param width width of the widget
+#' @param height height of the widget
+#' @param element_id unique id of the widget
+#' @param mapbox_properties ...
+#' @param ... ...
 #'
 #' @import htmlwidgets
 #'
 #' @export
-rdeck <- function(script, data, width = NULL, height = NULL, elementId = NULL, ...) {
+rdeck <- function(script, data, width = NULL, height = NULL, element_id = NULL, mapbox_properties = NULL, ...) {
 
   # forward options using x
   x = list(
@@ -21,6 +27,7 @@ rdeck <- function(script, data, width = NULL, height = NULL, elementId = NULL, .
       ),
       list(...)
     ),
+    mapbox_properties = mapbox_properties,
     props = list(
       df = inherits(data, "data.frame")
     )
@@ -33,7 +40,7 @@ rdeck <- function(script, data, width = NULL, height = NULL, elementId = NULL, .
     width = width,
     height = height,
     package = 'rdeck',
-    elementId = elementId
+    elementId = element_id
   )
 }
 
