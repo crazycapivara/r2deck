@@ -6,15 +6,13 @@ export default function(widgetElement, width, height) {
   widget.renderValue = function(widgetData) {
     console.log(widgetData);
 
-    deckGL = makeDeck(widgetData.id, widgetData.deckGLProperties);
-    const scriptElement = document.createElement("script");
-    scriptElement.type = "text/javascript";
-    scriptElement.text = widgetData.script;
-    document.head.appendChild(scriptElement);
+    appendScript2Head(widgetData.script);
     if (widgetData.props.df) {
       widgetData.data = HTMLWidgets.dataframeToD3(widgetData.data);
     }
 
+    deckGL = makeDeck(widgetElement.id, widgetData.deckGLProperties);
+    deckScript = global.deckScript;
     deckScript(deckGL, widgetData.data);
   };
 
@@ -22,6 +20,13 @@ export default function(widgetElement, width, height) {
   };
 
   return widget;
+}
+
+function appendScript2Head(script) {
+  const scriptElement = document.createElement("script");
+  scriptElement.type = "text/javascript";
+  scriptElement.text = script;
+  document.head.appendChild(scriptElement);
 }
 
 function makeDeck(elementId, props) {
