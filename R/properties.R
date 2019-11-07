@@ -13,3 +13,16 @@ deck_properties <- function(
     zoom = zoom
   )
 }
+
+#' @export
+mapbox_properties <- function(
+  center = c(0, 0),
+  zoom = 6,
+  style = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+  ) {
+  list(
+    center = center,
+    zoom = zoom,
+    style = style
+  )
+}

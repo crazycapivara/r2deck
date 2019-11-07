@@ -11,7 +11,9 @@ export default function(widgetElement, width, height) {
       widgetData.data = HTMLWidgets.dataframeToD3(widgetData.data);
     }
 
-    deckGL = makeDeck(widgetElement.id, widgetData.deckGLProperties);
+    deckGL = widgetData.mapboxGLProperties ?
+      makeMapboxMap(widgetElement.id, widgetData.mapboxGLProperties) :
+      makeDeck(widgetElement.id, widgetData.deckGLProperties);
     deckScript = global.deckScript;
     deckScript(deckGL, widgetData.data);
   };
@@ -32,4 +34,9 @@ function appendScript2Head(script) {
 function makeDeck(elementId, props) {
   props.container = elementId;
   return new deck.DeckGL(props);
+}
+
+function makeMapboxMap(elementId, props){
+  props.container = elementId;
+  return new mapboxgl.Map(props);
 }

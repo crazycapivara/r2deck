@@ -27,7 +27,7 @@ rdeck <- function(script, data, width = NULL, height = NULL, element_id = NULL, 
       ),
       list(...)
     ),
-    mapbox_properties = mapbox_properties,
+    mapboxGLProperties = mapbox_properties,
     props = list(
       df = inherits(data, "data.frame")
     )
