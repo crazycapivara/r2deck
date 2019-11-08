@@ -1,0 +1,91 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# _rdeck_ - An R Interface to deck.gl and Mapbox GL Visualizations
+
+The _rdeck_ package makes it possible to visualize your R data in [deck.gl](https://deck.gl/) and
+[Mapbox GL](https://github.com/mapbox/mapbox-gl-js). It was inspired by the [r2d3](https://rstudio.github.io/r2d3/) package. In contrast to other existing packages, it is a low-level interface giving you a high degree of flexibility regarding the customization of your visualization.
+
+## Installation
+
+You can install the latest version of _rdeck_ from [GiHub](https://github.com) with:
+
+``` r
+remotes::install_github("crazycapivara/rdeck")
+```
+
+## Getting Started
+
+To visualize your data you have to create a JavaScript file containing your visualization function called `_rdeckViz`. The JavaScript visualization function takes 3 parameters:
+
+* `map` - The map object on which the layers will be rendered, either of type `deck.DeckGL` or `mapboxgl.Map`.
+This object is automatically created.
+* `data` - The data that is passed from R to the vizualisation function.
+* `options` - Additional options that can passed from R to the vizualisation function.
+
+Furthermore, the libraries/variables `deck` and `mapboxgl` are available through the global context.
+
+The JavaScript file is then passed to the `rdeck` function in R together with the data and some other parameters styling the map object.
+
+So let's take a look at a basic example.
+
+First fetch some flight data:
+
+```{r data}
+data_url <- paste0(
+  "https://raw.githubusercontent.com/plotly/datasets/master/",
+  "2011_february_aa_flight_paths.csv"
+)
+flights <- data.table::fread(data_url)
+head(flights)
+```
+
+Then create your visualization function to render an arc layer like this:
+
+``` javascript
+/* arc.js */
+function _rdeckViz(map, data, options) {
+  // Create an arc layer
+  const arcLayer = new deck.ArcLayer({
+    id: "arc-layer",
+    data: data,
+    getSourcePosition: data => [data.start_lon, data.start_lat],
+    getTargetPosition: data => [data.end_lon, data.end_lat],
+    getSourceColor: data => [64, 255, 0],
+    getTargetColor: data => [0, 128, 200]
+  });
+
+  // Add the layer to the map
+  map.setProps({
+    layers: [ arcLayer ]
+  });
+}
+```
+
+Finally, send the data to your visualization function:
+
+``` r
+library(rdeck)
+
+rdeck(
+  script = "arc.js",
+  data = flights,
+  # viewport parameters that are passed to the deck/map object
+  longitude = -87.6500523,
+  latitude = 41.850033,
+  zoom = 2,
+  pitch = 45
+)
+
+```
