@@ -20,12 +20,13 @@ rdeck(script, data, options = NULL, width = NULL, height = NULL,
 
 \item{element_id}{(optional) The unique id of the widget.}
 
-\item{mapbox_properties}{(optional) The properties that are passed to the mapbox map object.
+\item{mapbox_properties}{(optional) The properties that are passed to the Mapbox map object.
 Only needed if the layers should be drawn into the same WebGL context that the Mapbox map is rendered in.
 In this case you need to add your layers via \code{deck.MapboxLayer} to the \code{mapboxgl.Map} object.
 This is useful if you want to combine Deck and Mapbox layers with each other in a smooth way.}
 
-\item{...}{The properties (viewport settings, picking radius, ...) that are passed to the Deck class.}
+\item{...}{The properties (viewport settings, picking radius, ...) that are passed to the Deck class.
+Ignored if parameter \code{mapbox_properties} is set.}
 }
 \description{
 Create a widget object

@@ -1,5 +1,7 @@
 /* Multiple layers */
-function _rdeckViz(map, data) {
+function deckScript(map, data) {
+  console.log("map:", map, "data:", data);
+
   const scatterplotLayer = new ScatterplotLayer({
     data: data,
     getPosition: d => [d.long, d.lat],
