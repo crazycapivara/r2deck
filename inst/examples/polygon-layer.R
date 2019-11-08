@@ -7,7 +7,7 @@ nc <- system.file("shape/nc.shp", package = "sf") %>%
   st_transform(4326)
 
 rdeck(
-  script = "inst/scripts/polygon.js",
+  script = system.file("scripts/polygon.js", package = "rdeck"),
   data = nc,
   longitude = -79.89018,
   latitude = 35.23597,

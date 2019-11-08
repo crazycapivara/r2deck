@@ -6,7 +6,7 @@ data_url <- "https://raw.githubusercontent.com/uber/deck.gl/master/examples/laye
 data <- fromJSON(data_url)
 
 rdeck(
-  script = "inst/scripts/arc-mapbox.js",
+  script = system.file("scripts/arc-mapbox.js", package = "rdeck"),
   data = data,
   mapbox_properties = list(
     center = c(-122.398, 37.788),

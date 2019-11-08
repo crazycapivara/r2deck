@@ -16,8 +16,8 @@ export default function(widgetElement, width, height) {
     deckGL = widgetData.mapboxGLProperties ?
       makeMapboxMap(widgetElement.id, widgetData.mapboxGLProperties) :
       makeDeck(widgetElement.id, widgetData.deckGLProperties);
-    const _vizFunc = global.deckScript;
-    _vizFunc(deckGL, widgetData.data, widgetData.options);
+    const _render = global._rdeckViz;
+    _render(deckGL, widgetData.data, widgetData.options);
   };
 
   widget.resize = function(width, height) {
