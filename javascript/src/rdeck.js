@@ -5,6 +5,7 @@ export default function(widgetElement, width, height) {
 
   widget.renderValue = function(widgetData) {
     console.log(widgetData);
+    mapboxgl.accessToken = widgetData.deckGLProperties.mapboxApiAccessToken = widgetData.props.mapboxAccessToken || "no-token";
 
     appendScript2Head(widgetData.script);
     if (widgetData.props.df) {
