@@ -2,7 +2,7 @@
 #'
 #' @param script The name of the JavaScript file containing the vizualisation function.
 #' @param data The data passed to the vizualisation function.
-#' @prama options (optional) Additional options that are passed to the vizualisation function.
+#' @param options (optional) Additional options that are passed to the vizualisation function.
 #' @param width (optional) The width of the widget.
 #' @param height (optional) The height of the widget.
 #' @param element_id (optional) The unique id of the widget.

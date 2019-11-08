@@ -12,6 +12,8 @@ rdeck(script, data, options = NULL, width = NULL, height = NULL,
 
 \item{data}{The data passed to the vizualisation function.}
 
+\item{options}{(optional) Additional options that are passed to the vizualisation function.}
+
 \item{width}{(optional) The width of the widget.}
 
 \item{height}{(optional) The height of the widget.}
