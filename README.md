@@ -86,3 +86,60 @@ rdeck(
 ```
 
 For further examples take a look at the [example scripts](inst/examples) of the package.
+
+Mapbox Access Token
+-------------------
+
+In order to use mapbox styles you need to put your access token in an environment variable called `MAPBOX_ACCESS_TOKEN`. If not set globally, you can run:
+
+``` r
+Sys.setenv(MAPBOX_ACCESS_TOKEN = "your-token")
+```
+
+*sf* data objects
+-----------------
+
+It is straight forward to pass [sf](https://github.com/r-spatial/sf) data objects to your visualization function. Just tell the data accessor to get the geometries from the *geometry* column:
+
+``` javascript
+const polygonLayer = new PolygonLayer({
+  id: "nc",
+  data: data,
+  getPolygon: data => data.geometry,
+  ...
+}
+```
+
+See also the [polygon layer example](inst/examples/polygon-layer.R).
+
+Documentation
+-------------
+
+The documentation is still work in progress as this package is in an early state.
+
+As a good starting point check the [deck.gl api documentation](https://deck.gl/#/documentation/deckgl-api-reference/) where you have a lot of examples on how your JavaScript visualization function should look like.
+
+Basically you just need to define one or more layers using your data object that is passed via `rdeck` to your function and then add it to the map:
+
+``` javascript
+function _rdeckViz(map, data, options) {
+  const gridLayer = new deck.GridLayer({
+    id: "grid-layer",
+    data: data,
+    ...
+  });
+  
+  map.setProps({
+    layers: [ gridLayer ]
+  });
+}
+
+// Columns from your data are accessed like this:
+data.column_name
+
+// If you have the columns 'lat' and 'lng' in your data.frame
+// a data accessor would be:
+...
+getPosition: data => [data.lng, data.lat],
+...
+```
