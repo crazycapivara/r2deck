@@ -6,6 +6,7 @@ rdeck(
   mapbox_properties = list(
     center = c(-96.97, 32.86),
     zoom = 9,
-    style = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+    # style = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+    style = "mapbox://styles/mapbox/light-v9"
   )
 )

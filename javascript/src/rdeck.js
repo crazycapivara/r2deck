@@ -4,6 +4,7 @@ export default function(widgetElement, width, height) {
   let deckGL = null;
 
   widget.renderValue = function(widgetData) {
+    widgetData.options = widgetData.options || { };
     console.log(widgetData);
     mapboxgl.accessToken = widgetData.deckGLProperties.mapboxApiAccessToken = widgetData.props.mapboxAccessToken || "no-token";
 
@@ -15,8 +16,8 @@ export default function(widgetElement, width, height) {
     deckGL = widgetData.mapboxGLProperties ?
       makeMapboxMap(widgetElement.id, widgetData.mapboxGLProperties) :
       makeDeck(widgetElement.id, widgetData.deckGLProperties);
-    deckScript = global.deckScript;
-    deckScript(deckGL, widgetData.data);
+    const _vizFunc = global.deckScript;
+    _vizFunc(deckGL, widgetData.data, widgetData.options);
   };
 
   widget.resize = function(width, height) {

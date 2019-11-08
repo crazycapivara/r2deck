@@ -4,23 +4,26 @@
 \alias{rdeck}
 \title{Create a widget object}
 \usage{
-rdeck(script, data, width = NULL, height = NULL, element_id = NULL,
-  mapbox_properties = NULL, ...)
+rdeck(script, data, options = NULL, width = NULL, height = NULL,
+  element_id = NULL, mapbox_properties = NULL, ...)
 }
 \arguments{
-\item{script}{JavaScript file conatining the vizualisation function}
+\item{script}{The name of the JavaScript file containing the vizualisation function.}
 
-\item{data}{data passed to the vizualisation function in the JavaScript file}
+\item{data}{The data passed to the vizualisation function.}
 
-\item{width}{width of the widget}
+\item{width}{(optional) The width of the widget.}
 
-\item{height}{height of the widget}
+\item{height}{(optional) The height of the widget.}
 
-\item{element_id}{unique id of the widget}
+\item{element_id}{(optional) The unique id of the widget.}
 
-\item{mapbox_properties}{...}
+\item{mapbox_properties}{(optional) The Properties passed to the mapbox map object.
+Only needed if the layers should be drawn into the same WebGL context that the Mapbox map is rendered in.
+In this case you need to add your layers via \code{deck.MapboxLayer} to the \code{mapboxgl.Map} object.
+This is useful if you want to combine Deck and Mapbox layers with each other in a smooth way.}
 
-\item{...}{...}
+\item{...}{The properties (viewport settings, picking radius, ...) that are passed to the Deck class.}
 }
 \description{
 Create a widget object

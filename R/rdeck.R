@@ -1,25 +1,29 @@
 #' Create a widget object
 #'
-#' @param script JavaScript file conatining the vizualisation function
-#' @param data data passed to the vizualisation function in the JavaScript file
-#' @param width width of the widget
-#' @param height height of the widget
-#' @param element_id unique id of the widget
-#' @param mapbox_properties ...
-#' @param ... ...
+#' @param script The name of the JavaScript file containing the vizualisation function.
+#' @param data The data passed to the vizualisation function.
+#' @prama options (optional) Additional options that are passed to the vizualisation function.
+#' @param width (optional) The width of the widget.
+#' @param height (optional) The height of the widget.
+#' @param element_id (optional) The unique id of the widget.
+#' @param mapbox_properties (optional) The Properties passed to the mapbox map object.
+#'   Only needed if the layers should be drawn into the same WebGL context that the Mapbox map is rendered in.
+#'   In this case you need to add your layers via \code{deck.MapboxLayer} to the \code{mapboxgl.Map} object.
+#'   This is useful if you want to combine Deck and Mapbox layers with each other in a smooth way.
+#' @param ... The properties (viewport settings, picking radius, ...) that are passed to the Deck class.
 #'
 #' @import htmlwidgets
 #'
 #' @export
-rdeck <- function(script, data, width = NULL, height = NULL, element_id = NULL, mapbox_properties = NULL, ...) {
+rdeck <- function(script, data, options = NULL, width = NULL, height = NULL, element_id = NULL, mapbox_properties = NULL, ...) {
 
   # forward options using x
   x = list(
     script = readr::read_file(script),
     data = data,
+    options = options,
     deckGLProperties = utils::modifyList(
       list(
-        mapboxAccessToken = "",
         mapStyle = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
         longitude = -122.45,
         latitude = 37.8,
