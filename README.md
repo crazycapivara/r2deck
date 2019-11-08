@@ -84,3 +84,5 @@ rdeck(
   pitch = 45
 )
 ```
+
+For further examples take a look at the [example scripts](inst/examples) of the package.
