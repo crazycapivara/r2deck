@@ -3,7 +3,7 @@
 *rdeck* - An R Interface to deck.gl and Mapbox GL Visualizations
 ================================================================
 
-[![Travis build status](https://travis-ci.org/crazycapivara/rdeck.svg?branch=master)](https://travis-ci.org/crazycapivara/rdeck) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Travis build status](https://travis-ci.org/crazycapivara/rdeck.svg?branch=master)](https://travis-ci.org/crazycapivara/rdeck) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN status](https://www.r-pkg.org/badges/version/rdeck)](https://cran.r-project.org/package=rdeck)
 
 The *rdeck* package makes it possible to visualize your R data in [deck.gl](https://deck.gl/) and [Mapbox GL](https://github.com/mapbox/mapbox-gl-js). It was inspired by the [r2d3](https://rstudio.github.io/r2d3/) package. In contrast to other existing packages, it is a low-level interface giving you a high degree of flexibility regarding the customization of your visualization.
 
