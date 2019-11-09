@@ -16,27 +16,22 @@
 #' @import htmlwidgets
 #' @export
 rdeck <- function(script, data, deck_properties = make_deck_properties(), width = NULL, height = NULL, element_id = NULL, mapbox_properties = NULL, ...) {
-
-  # forward options using x
-  x = list(
+  x <- list(
     script = readr::read_file(script),
     data = data,
     deckGLProperties = deck_properties,
     mapboxGLProperties = mapbox_properties,
-    # options = list(...),
     props = list(
       df = inherits(data, "data.frame"),
       mapboxAccessToken = Sys.getenv("MAPBOX_ACCESS_TOKEN")
     )
   )
-
-  # create widget
   htmlwidgets::createWidget(
-    name = 'rdeck',
+    "rdeck",
     x,
     width = width,
     height = height,
-    package = 'rdeck',
+    package = "rdeck",
     elementId = element_id
   )
 }
