@@ -8,10 +8,10 @@ data <- fromJSON(data_url)
 rdeck(
   script = system.file("scripts/arc-mapbox.js", package = "rdeck"),
   data = data,
-  mapbox_properties = list(
+  mapbox_properties = make_mapbox_properties(
     center = c(-122.398, 37.788),
     zoom = 12,
     pitch = 60,
-    style = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+    style = get_carto_style("dark-matter")
   )
 )

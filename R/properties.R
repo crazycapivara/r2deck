@@ -7,7 +7,7 @@
 #' @param theme The theme of the style, \code{dark-matter}, \code{positron} or \code{voyager}.
 #'
 #' @export
-carto_style <- function(theme = "dark-matter") {
+get_carto_style <- function(theme = "dark-matter") {
   if (!theme %in% c("dark-matter", "voyager", "positron")) {
     stop("Unknown theme.")
   }
@@ -24,8 +24,8 @@ carto_style <- function(theme = "dark-matter") {
 #' @param ... Further options that are passed to the Map class.
 #'
 #' @export
-deck_properties <- function(
-  map_style = carto_style("dark-matter"),
+make_deck_properties <- function(
+  map_style = get_carto_style("dark-matter"),
   longitude = -122.45,
   latitude = 37.8,
   zoom = 10,
@@ -48,8 +48,8 @@ deck_properties <- function(
 #' @param ... Further options that are passed to the Map class.
 #'
 #' @export
-mapbox_properties <- function(
-  style = carto_style("dark-matter"),
+make_mapbox_properties <- function(
+  style = get_carto_style("dark-matter"),
   center = c(-122.45, 37.8),
   zoom = 6,
   ...
