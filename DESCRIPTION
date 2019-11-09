@@ -9,7 +9,8 @@ URL: https://github.com/crazycapivara/rdeck
 BugReports: https://github.com/crazycapivara/rdeck/issues
 Imports:
   htmlwidgets,
-  readr
+  readr,
+  magrittr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

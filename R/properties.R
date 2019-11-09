@@ -1,5 +1,31 @@
+#CARTO_BASEMAPS = list(
+#  "dark-matter" = "darkmatter"
+#)
+
+#' Carto style
+#'
+#' @param theme The theme of the style, \code{dark-matter}, \code{positron} or \code{voyager}.
+#'
+#' @export
+carto_style <- function(theme = "dark-matter") {
+  if (!theme %in% c("dark-matter", "voyager", "positron")) {
+    stop("Unknown theme.")
+  }
+
+  sprintf("https://basemaps.cartocdn.com/gl/%s-gl-style/style.json", theme)
+}
+
+#' Deck properties
+#'
+#' @param map_style The style definition of the map conforming to the Mapbox Style Specification.
+#' @param longitude The longitude of the initial geographical center point of the map.
+#' @param latitude The latitude of the initial geographical center point of the map.
+#' @param zoom The initial zoom level of the map.
+#' @param ... Further options that are passed to the Map class.
+#'
+#' @export
 deck_properties <- function(
-  map_style = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  map_style = carto_style("dark-matter"),
   longitude = -122.45,
   latitude = 37.8,
   zoom = 10,
@@ -11,21 +37,21 @@ deck_properties <- function(
     latitude = latitude,
     zoom = zoom,
     ...
-  )
+  ) %>% keys_to_camel_case()
 }
 
 #' Mapbox properties
 #'
 #' @param center The initial geographical center point of the map.
-#' @param zoom The initial zoom level of the map
+#' @param zoom The initial zoom level of the map.
 #' @param style The style definition of the map conforming to the Mapbox Style Specification.
 #' @param ... Further options that are passed to the Map class.
 #'
 #' @export
 mapbox_properties <- function(
+  style = carto_style("dark-matter"),
   center = c(-122.45, 37.8),
   zoom = 6,
-  style = "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
   ...
 ) {
   list(
@@ -33,5 +59,5 @@ mapbox_properties <- function(
     zoom = zoom,
     style = style,
     ...
-  )
+  ) %>% keys_to_camel_case()
 }
