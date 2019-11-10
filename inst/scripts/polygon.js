@@ -7,7 +7,9 @@ function _r2deckViz(deck, data, options) {
     getFillColor: data => [250, Math.sqrt(data.BIR74), 20, 200],
     lineWidthMinPixels: 1,
     getLineColor: [250, 80, 80],
-    getLineWidth: 1
+    getLineWidth: 1,
+    pickable: true,
+    onClick: ({object, coordinate}) => { console.log(object, coordinate); }
   });
 
   deck.setProps({
