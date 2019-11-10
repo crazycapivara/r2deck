@@ -1,5 +1,5 @@
 /* Render a Deck.gl layer in the Mapbox WebGL context  */
-function _rdeckViz(map, data, options) {
+function _r2deckViz(map, data, options) {
   const scatterplotLayer = new MapboxLayer({
     id: "scatterplot",
     type: ScatterplotLayer,
