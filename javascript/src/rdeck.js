@@ -13,8 +13,13 @@ export default function(widgetElement, width, height) {
       widgetData.data = HTMLWidgets.dataframeToD3(widgetData.data);
     }
 
+    /*
     deckGL = widgetData.mapboxGLProperties ?
       makeMapboxMap(widgetElement.id, widgetData.mapboxGLProperties) :
+      makeDeck(widgetElement.id, widgetData.deckGLProperties);
+    */
+    deckGL = widgetData.webGLContext === "mapbox" ?
+      makeMapboxMap(widgetElement.id, widgetData.deckGLProperties) :
       makeDeck(widgetElement.id, widgetData.deckGLProperties);
     const _render = global._rdeckViz;
     _render(deckGL, widgetData.data, widgetData.options);
