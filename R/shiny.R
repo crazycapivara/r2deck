@@ -1,9 +1,6 @@
-#' Shiny bindings for rdeck
+#' Shiny bindings
 #'
-#' Output and render functions for using rdeck within Shiny
-#' applications and interactive Rmd documents.
-#'
-#' @param outputId output variable to read from
+#' @param output_id output variable to read from
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
 #'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 #'   string and have \code{'px'} appended.
@@ -13,15 +10,17 @@
 #'   is useful if you want to save an expression in a variable.
 #'
 #' @name rdeck-shiny
-#'
 #' @export
-rdeckOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'rdeck', width, height, package = 'rdeck')
+r2deck_output <- function(output_id, width = "100%", height = "400px"){
+  htmlwidgets::shinyWidgetOutput(output_id, "rdeck", width, height, package = "rdeck")
 }
 
 #' @rdname rdeck-shiny
 #' @export
-renderRdeck <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, rdeckOutput, env, quoted = TRUE)
+render_r2deck <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) {
+    expr <- substitute(expr)
+  }
+
+  htmlwidgets::shinyRenderWidget(expr, r2deck_output, env, quoted = TRUE)
 }
