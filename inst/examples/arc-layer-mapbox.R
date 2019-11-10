@@ -8,8 +8,9 @@ data <- fromJSON(data_url)
 r2mapbox(
   script = system.file("scripts/arc-mapbox.js", package = "rdeck"),
   data = data,
-  center = c(-122.398, 37.788),
+  lng = -122.398,
+  lat = 37.788,
   zoom = 12,
   pitch = 60,
-  style = get_carto_style("dark-matter")
+  map_style = get_carto_style("dark-matter")
 )

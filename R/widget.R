@@ -26,10 +26,10 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
 #'
 #' @param script The name of the JavaScript file containing the vizualisation function.
 #' @param data The data that is passed to the vizualisation function.
-#' @param longitude ...
-#' @param latitude ...
-#' @param zoom ...
-#' @param map_style ...
+#' @param lng The longitude of the initial geographical center point of the map.
+#' @param lat The latitude of the initial geographical center point of the map.
+#' @param zoom The initial zoom level of the map.
+#' @param map_style The style definition of the map conforming to the Mapbox Style Specification.
 #' @param options (optional) Additional options that are passed to the vizualisation function as parameter \code{options}.
 #' @param width (optional) The width of the widget.
 #' @param height (optional) The height of the widget.
@@ -38,7 +38,7 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
 #'
 #' @import htmlwidgets
 #' @export
-r2deck <- function(script, data, longitude = -122.45, latitude = 37.8, zoom = 8, map_style = get_carto_style(),
+r2deck <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style = get_carto_style(),
                    options = NULL, width = NULL, height = NULL, element_id = NULL, ...) {
   make_widget(
     script,
@@ -48,8 +48,8 @@ r2deck <- function(script, data, longitude = -122.45, latitude = 37.8, zoom = 8,
     width = width,
     height = height,
     element_id = element_id,
-    longitude = longitude,
-    latitude = latitude,
+    longitude = lng,
+    latitude = lat,
     zoom = zoom,
     mapStyle = map_style,
     ...
@@ -59,10 +59,8 @@ r2deck <- function(script, data, longitude = -122.45, latitude = 37.8, zoom = 8,
 #' Create a widget object using the Mapbox WebGL context
 #'
 #' @inheritParams r2deck
-#' @param center ...
-#' @param style The style definition of the map conforming to the Mapbox Style Specification.
 #' @export
-r2mapbox <- function(script, data, center = c(-122.45, 37.8), zoom = 8, style = get_carto_style("dark-matter"),
+r2mapbox <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style = get_carto_style("dark-matter"),
                      options = NULL, width = NULL, height = NULL, element_id = NULL, ...) {
   make_widget(
     script,
@@ -72,9 +70,9 @@ r2mapbox <- function(script, data, center = c(-122.45, 37.8), zoom = 8, style = 
     width = width,
     height = height,
     element_id = element_id,
-    center = center,
+    center = c(lng, lat),
     zoom = zoom,
-    style = style,
+    style = map_style,
     ...
   )
 }

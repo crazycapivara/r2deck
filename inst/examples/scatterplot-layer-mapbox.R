@@ -4,7 +4,8 @@ library("rdeck")
 r2mapbox(
   script = system.file("scripts/scatterplot-mapbox.js", package = "rdeck"),
   data = geojsonio::us_cities,
-  center = c(-96.97, 32.86),
+  lng = -96.97,
+  lat = 32.86,
   zoom = 9,
   style = get_carto_style("voyager")
   # style = "mapbox://styles/mapbox/light-v9"

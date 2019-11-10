@@ -10,8 +10,8 @@ r2deck(
   script = system.file("scripts/arc.js", package = "rdeck"),
   data = flights,
   # viewport parameters that are passed to the deck/map class
-  longitude = -87.6500523,
-  latitude = 41.850033,
+  lng = -87.6500523,
+  lat = 41.850033,
   zoom = 3,
   pitch = 45
 )

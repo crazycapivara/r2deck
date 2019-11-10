@@ -9,7 +9,7 @@ nc <- system.file("shape/nc.shp", package = "sf") %>%
 r2deck(
   script = system.file("scripts/polygon.js", package = "rdeck"),
   data = nc,
-  longitude = -79.89018,
-  latitude = 35.23597,
+  lng = -79.89018,
+  lat = 35.23597,
   zoom = 6
 )
