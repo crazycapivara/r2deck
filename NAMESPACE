@@ -2,11 +2,8 @@
 
 export("%>%")
 export(get_carto_style)
-export(make_deck_properties)
-export(make_mapbox_properties)
 export(r2deck)
 export(r2mapbox)
-export(rdeck)
 export(rdeckOutput)
 export(renderRdeck)
 import(htmlwidgets)
