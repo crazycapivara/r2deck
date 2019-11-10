@@ -1,9 +1,9 @@
-library("rdeck")
+library(r2deck)
 
-rdeck(
-  script = system.file("scripts/multiple-layers.js", package = "rdeck"),
+r2deck(
+  script = system.file("scripts/multiple-layers.js", package = "r2deck"),
   data = geojsonio::us_cities,
-  longitude = -96.97,
-  latitude = 32.86,
+  lng = -96.97,
+  lat = 32.86,
   zoom = 9
 )

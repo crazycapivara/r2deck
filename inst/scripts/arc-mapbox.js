@@ -1,5 +1,5 @@
 /* https://blog.mapbox.com/launching-custom-layers-with-uber-2a235841a125 */
-function _rdeckViz(map, data, options) {
+function _r2deckViz(map, data, options) {
   const arcLayer = new MapboxLayer({
     id: "arc",
     type: ArcLayer,

@@ -1,33 +1,33 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-*rdeck* - An R Interface to deck.gl and Mapbox GL Visualizations
-================================================================
+*r2deck* - An R Interface to deck.gl and Mapbox GL Visualizations
+=================================================================
 
-[![Travis build status](https://travis-ci.org/crazycapivara/rdeck.svg?branch=master)](https://travis-ci.org/crazycapivara/rdeck) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN status](https://www.r-pkg.org/badges/version/rdeck)](https://cran.r-project.org/package=rdeck)
+[![Travis build status](https://travis-ci.org/crazycapivara/r2deck.svg?branch=master)](https://travis-ci.org/crazycapivara/r2deck) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN status](https://www.r-pkg.org/badges/version/r2deck)](https://cran.r-project.org/package=r2deck)
 
-The *rdeck* package makes it possible to visualize your R data in [deck.gl](https://deck.gl/) and [Mapbox GL](https://github.com/mapbox/mapbox-gl-js). It was inspired by the [r2d3](https://rstudio.github.io/r2d3/) package. In contrast to other existing packages, it is a low-level interface giving you a high degree of flexibility regarding the customization of your visualization.
+The *r2deck* package makes it possible to visualize your R data in [deck.gl](https://deck.gl/) and [Mapbox GL](https://github.com/mapbox/mapbox-gl-js). It was inspired by the [r2d3](https://rstudio.github.io/r2d3/) package. In contrast to other existing packages, it is a low-level interface giving you a high degree of flexibility regarding the customization of your visualization.
 
 Installation
 ------------
 
-You can install the latest version of *rdeck* from [GiHub](https://github.com) with:
+You can install the latest version of *r2deck* from [GiHub](https://github.com) with:
 
 ``` r
-remotes::install_github("crazycapivara/rdeck")
+remotes::install_github("crazycapivara/r2deck")
 ```
 
 Getting Started
 ---------------
 
-To visualize your data you have to create a JavaScript file containing your visualization function called `_rdeckViz`. The JavaScript visualization function takes 3 parameters:
+To visualize your data you have to create a JavaScript file containing your visualization function called `_r2deckViz`. The JavaScript visualization function takes 3 parameters:
 
 -   `map` - The map object on which the layers will be rendered, either of type `deck.DeckGL` or `mapboxgl.Map`. This object is automatically created.
 -   `data` - The data that is passed from R to the vizualisation function.
--   `options` - Additional options that can passed from R to the vizualisation function.
+-   `options` - Additional options that can be passed from R to the vizualisation function.
 
 Furthermore, the libraries/variables `deck` and `mapboxgl` are available through the global context.
 
-The JavaScript file is then passed to the `rdeck` function in R together with the data and some other parameters styling the map object.
+The JavaScript file is then passed to the `r2deck` or `r2mapbox` function in R together with the data and some other parameters styling the map object.
 
 So let's take a look at a basic example.
 
@@ -53,7 +53,7 @@ Then create your visualization function to render an arc layer like this:
 
 ``` javascript
 /* arc.js */
-function _rdeckViz(map, data, options) {
+function _r2deckViz(map, data, options) {
   // Create an arc layer
   const arcLayer = new deck.ArcLayer({
     id: "arc-layer",
@@ -74,14 +74,14 @@ function _rdeckViz(map, data, options) {
 Finally, send the data to your visualization function:
 
 ``` r
-library(rdeck)
+library(r2deck)
 
-rdeck(
+r2deck(
   script = "arc.js",
   data = flights,
   # viewport parameters that are passed to the deck/map object
-  longitude = -87.6500523,
-  latitude = 41.850033,
+  lng = -87.6500523,
+  lat = 41.850033,
   zoom = 2,
   pitch = 45
 )
@@ -121,10 +121,10 @@ The documentation is still work in progress as this package is in an early state
 
 As a good starting point check the [deck.gl api documentation](https://deck.gl/#/documentation/deckgl-api-reference/) where you have a lot of examples on how your JavaScript visualization function should look like.
 
-Basically you just need to define one or more layers using your data object that is passed via `rdeck` to your function and then add it to the map:
+Basically you just need to define one or more layers using your data object that is passed via `r2deck` to your function and then add it to the map:
 
 ``` javascript
-function _rdeckViz(map, data, options) {
+function _r2deckViz(map, data, options) {
   const gridLayer = new deck.GridLayer({
     id: "grid-layer",
     data: data,
@@ -141,7 +141,5 @@ data.column_name
 
 // If you have the columns 'lat' and 'lng' in your data.frame
 // a data accessor would be:
-...
-getPosition: data => [data.lng, data.lat],
-...
+getPosition: data => [data.lng, data.lat]
 ```

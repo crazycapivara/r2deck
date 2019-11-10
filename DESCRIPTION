@@ -1,15 +1,17 @@
-Package: rdeck
+Package: r2deck
 Title: An R Interface to 'deck.gl'
 Version: 0.1.0
 Date: 2019-11-08
 Authors@R: person("Stefan", "Kuethe", email = "crazycapivara@gmail.com", role = c("aut", "cre"))
 Maintainer: Stefan Kuethe <crazycapivara@gmail.com>
-Description: Makes 'deck.gl' <https://deck.gl/> visualizations available in R.
+Description: Makes 'deck.gl' <https://deck.gl/> and 'mapbox-gl' <https://github.com/mapbox/mapbox-gl-js>
+  visualizations available in R.
 URL: https://github.com/crazycapivara/rdeck
 BugReports: https://github.com/crazycapivara/rdeck/issues
 Imports:
   htmlwidgets,
-  readr
+  readr,
+  magrittr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

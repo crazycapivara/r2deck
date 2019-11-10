@@ -1,5 +1,5 @@
 /* Multiple layers */
-function _rdeckViz(map, data, options) {
+function _r2deckViz(map, data, options) {
   console.log({ map: map, data: data, options: options });
 
   const scatterplotLayer = new ScatterplotLayer({
