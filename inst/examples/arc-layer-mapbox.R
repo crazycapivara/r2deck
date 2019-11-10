@@ -1,13 +1,12 @@
 library(jsonlite)
-library(rdeck)
+library(r2deck)
 
-# SFMTA origin/destination routes
 data_url <- "https://raw.githubusercontent.com/uber/deck.gl/master/examples/layer-browser/data/sfmta.routes.json"
-data <- fromJSON(data_url)
+sfmta_routes <- fromJSON(data_url)
 
 r2mapbox(
-  script = system.file("scripts/arc-mapbox.js", package = "rdeck"),
-  data = data,
+  script = system.file("scripts/arc-mapbox.js", package = "r2deck"),
+  data = sfmta_routes,
   lng = -122.398,
   lat = 37.788,
   zoom = 12,

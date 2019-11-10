@@ -12,11 +12,11 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
     )
   )
   htmlwidgets::createWidget(
-    "rdeck",
+    "r2deck",
     widgetData,
     width = width,
     height = height,
-    package = "rdeck",
+    package = "r2deck",
     elementId = element_id
   )
 }

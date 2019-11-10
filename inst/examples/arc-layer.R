@@ -1,4 +1,4 @@
-library(rdeck)
+library(r2deck)
 
 data_url <- paste0(
   "https://raw.githubusercontent.com/plotly/datasets/master/",
@@ -7,7 +7,7 @@ data_url <- paste0(
 flights <- data.table::fread(data_url)
 
 r2deck(
-  script = system.file("scripts/arc.js", package = "rdeck"),
+  script = system.file("scripts/arc.js", package = "r2deck"),
   data = flights,
   # viewport parameters that are passed to the deck/map class
   lng = -87.6500523,
