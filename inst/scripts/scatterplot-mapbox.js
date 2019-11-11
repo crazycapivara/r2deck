@@ -1,5 +1,9 @@
 /* Render a Deck.gl layer in the Mapbox WebGL context  */
 function _r2deckViz(map, data, options) {
+  const popup = new mapboxgl.Popup({
+    closeButton: false
+  });
+
   const scatterplotLayer = new MapboxLayer({
     id: "scatterplot",
     type: ScatterplotLayer,
@@ -7,7 +11,18 @@ function _r2deckViz(map, data, options) {
     getPosition: d => [d.long, d.lat],
     getRadius: 1000,
     getFillColor: [0, 0, 140],
-    filled: true
+    filled: true,
+    pickable: true,
+    onHover: ({object, lngLat}) => {
+      if (object) {
+        // console.log(object);
+        popup.setLngLat(lngLat)
+          .setHTML(object.name)
+          .addTo(map);
+      } else {
+        popup.remove();
+      }
+    }
   });
 
   map.on("load", () => {
