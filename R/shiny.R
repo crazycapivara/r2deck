@@ -11,7 +11,7 @@
 #'
 #' @name r2deck-shiny
 #' @export
-r2deck_output <- function(output_id, width = "100%", height = "400px"){
+r2deck_output <- function(output_id, width = "100%", height = "400px") {
   htmlwidgets::shinyWidgetOutput(output_id, "r2deck", width, height, package = "r2deck")
 }
 
