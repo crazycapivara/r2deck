@@ -1,4 +1,4 @@
-function _r2deckViz(deck, data, options) {
+function _r2deckViz(map, data, options) {
   const polygonLayer = new PolygonLayer({
     id: "nc",
     data: data,
@@ -9,10 +9,21 @@ function _r2deckViz(deck, data, options) {
     getLineColor: [250, 80, 80],
     getLineWidth: 1,
     pickable: true,
-    onClick: ({object, coordinate}) => { console.log(object, coordinate); }
+    onHover: ({object, x, y}) => {
+      console.log(object);
+      const tooltip = document.getElementsByClassName("deck-tooltip")[0];
+      if (object) {
+        tooltip.style.display = "block";
+        tooltip.style.top = y + "px";
+        tooltip.style.left = x + "px";
+        tooltip.innerText = object.NAME;
+      } else {
+        tooltip.style.display = "none";
+      }
+    }
   });
 
-  deck.setProps({
+  map.setProps({
     layers: [ polygonLayer ]
   });
 }
