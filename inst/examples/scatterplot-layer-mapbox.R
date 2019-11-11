@@ -7,6 +7,6 @@ r2mapbox(
   lng = -96.97,
   lat = 32.86,
   zoom = 9,
-  style = get_carto_style("voyager")
-  # style = "mapbox://styles/mapbox/light-v9"
+  map_style = get_carto_style("voyager")
+  # map_style = "mapbox://styles/mapbox/light-v9"
 )

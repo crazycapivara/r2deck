@@ -13,10 +13,10 @@ function _r2deckViz(map, data, options) {
     getFillColor: [0, 0, 140],
     filled: true,
     pickable: true,
-    onHover: ({object, coordinate}) => {
+    onHover: ({object, lngLat}) => {
       if (object) {
-        console.log(object);
-        popup.setLngLat([coordinate[0], coordinate[1]])
+        // console.log(object);
+        popup.setLngLat(lngLat)
           .setHTML(object.name)
           .addTo(map);
       } else {
