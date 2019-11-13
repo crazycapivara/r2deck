@@ -2,9 +2,9 @@
 
 export("%>%")
 export(get_carto_style)
+export(make_r2deck_viz)
 export(r2deck)
 export(r2deck_output)
 export(r2mapbox)
 export(render_r2deck)
-export(render_r2deck_func)
 importFrom(magrittr,"%>%")

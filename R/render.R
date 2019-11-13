@@ -5,7 +5,7 @@ render_comments <- c("/* # r2deck start", "# r2deck end */")
 #' @inheritParams r2deck
 #'
 #' @export
-render_r2deck_func <- function(script = NULL) {
+make_r2deck_viz <- function(script = NULL) {
   if (!is.null(script)) {
     contents <- readr::read_lines(script)
   } else if (rstudioapi::isAvailable()) {
