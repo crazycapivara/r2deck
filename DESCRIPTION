@@ -1,17 +1,19 @@
 Package: r2deck
-Title: An R Interface to 'deck.gl' and 'mapbox-gl' Visualizations
+Title: An R Interface to 'deck.gl' and 'Mapbox GL' Visualizations
 Version: 0.2.0
 Date: 2019-11-10
 Authors@R: person("Stefan", "Kuethe", email = "crazycapivara@gmail.com", role = c("aut", "cre"))
 Maintainer: Stefan Kuethe <crazycapivara@gmail.com>
-Description: Makes 'deck.gl' <https://deck.gl/> and 'mapbox-gl' <https://github.com/mapbox/mapbox-gl-js>
+Description: Makes 'deck.gl' <https://deck.gl> and 'Mapbox GL' <https://github.com/mapbox/mapbox-gl-js>
   visualizations available in R.
 URL: https://github.com/crazycapivara/r2deck
 BugReports: https://github.com/crazycapivara/r2deck/issues
 Imports:
   htmlwidgets,
   readr,
-  magrittr
+  magrittr,
+  rstudioapi,
+  yaml
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
