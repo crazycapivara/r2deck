@@ -1,9 +1,9 @@
 /* # r2deck start
-  r2deck:
-    data: https://raw.githubusercontent.com/uber-common/deck.gl-data/master/website/sf-bike-parking.json
-    zoom: 12
-    pitch: 45
-    map_style: !expr get_carto_style("voyager")
+r2deck:
+  data: https://raw.githubusercontent.com/uber-common/deck.gl-data/master/website/sf-bike-parking.json
+  zoom: 12
+  pitch: 45
+  map_style: !expr get_carto_style("voyager")
 # r2deck end */
 function _r2deckViz(map, data) {
   const ctrl = document.getElementsByClassName("mapboxgl-ctrl-top-left")[0];
