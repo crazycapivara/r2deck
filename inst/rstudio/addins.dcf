@@ -1,4 +1,4 @@
-Name: Make r2deck Viz
+Name: Render r2deck Viz Func
 Description: Run `r2deck::make_r2deck_viz()` to render the current JavaScript vizualisation function.
 Binding: make_r2deck_viz
 Interactive: true
