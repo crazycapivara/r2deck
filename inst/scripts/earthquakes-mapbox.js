@@ -1,14 +1,17 @@
 // https://docs.mapbox.com/mapbox-gl-js/example/timeline-animation/
 
-/* # r2deck start
-r2mapbox:
-  # data: !expr geojsonsf::sf_geojson(earthquakes)
-  data: !expr jsonlite::read_json("https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson")
-  lng: 31.4606
-  lat: 20.7927
-  zoom: 0.5
-  options: !expr list(months = month.name)
-# r2deck end */
+/**
+ * r2mapbox:
+ *  # data: !expr geojsonsf::sf_geojson(earthquakes)
+ *  data: !expr >
+ *    jsonlite::read_json(
+ *      "https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson"
+ *    )
+ *  lng: 31.4606
+ *  lat: 20.7927
+ *  zoom: 0.5
+ *  options: !expr list(months = month.name)
+ */
 function _r2deckViz(map, data, options) {
   // Create a month property value based on time, could also be done on R side
   data.features.forEach(feature =>  {

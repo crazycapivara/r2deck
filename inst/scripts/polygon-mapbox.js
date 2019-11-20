@@ -1,11 +1,11 @@
-/* # r2deck start
-r2mapbox:
-  data: !expr geojsonsf::geo_melbourne
-  lng: 144.9671
-  lat: -37.81211
-  zoom: 11
-  pitch: 35
-# r2deck end */
+/**
+ * r2mapbox:
+ *  data: !expr geojsonsf::geo_melbourne
+ *  lng: 144.9671
+ *  lat: -37.81211
+ *  zoom: 11
+ *  pitch: 35
+ */
 function _r2deckViz(map, data) {
   const source = {
     type: "geojson",

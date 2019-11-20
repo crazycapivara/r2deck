@@ -1,12 +1,12 @@
 // Multiple layers
 
-/* # r2deck start
-r2deck:
-  data: !expr geojsonio::us_cities
-  lng: -96.97
-  lat: 32.86
-  zoom: 9
-# r2deck end */
+/**
+ * r2deck:
+ *  data: !expr geojsonio::us_cities
+ *  lng: -96.97
+ *  lat: 32.86
+ *  zoom: 9
+ */
 function _r2deckViz(map, data, options) {
   console.log({ map: map, data: data, options: options });
 
