@@ -6,7 +6,7 @@ data_url <- "https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes
 earthquakes <- st_read(data_url, quiet = TRUE)
 
 r2mapbox(
-  script = "inst/scripts/earthquakes-mapbox.js",
+  script = system.file("scripts/earthquakes-mapbox.js", package = "r2deck"),
   data = geojsonsf::sf_geojson(earthquakes),
   options = list(months = month.name),
   longitude = 31.4606,
