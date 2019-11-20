@@ -4,9 +4,9 @@
 r2mapbox:
   # data: !expr geojsonsf::sf_geojson(earthquakes)
   data: !expr jsonlite::read_json("https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson")
-  longitude: 31.4606
-  latitude: 20.7927
-  zoom: 2
+  lng: 31.4606
+  lat: 20.7927
+  zoom: 0.5
   options: !expr list(months = month.name)
 # r2deck end */
 function _r2deckViz(map, data, options) {
