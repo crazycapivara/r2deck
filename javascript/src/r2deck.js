@@ -1,3 +1,7 @@
+import namesGenerator from "./names-generator";
+
+console.log(namesGenerator());
+
 export default function(widgetElement, width, height) {
   const widget = {};
 
