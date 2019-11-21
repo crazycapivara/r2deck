@@ -1,3 +1,5 @@
+"use strict";
+
 // https://docs.mapbox.com/mapbox-gl-js/example/timeline-animation/
 
 /**
@@ -52,14 +54,14 @@ function _r2deckViz(map, data, options) {
   }
 
   // Create the controls
-  const mapElement = map.getContainer();
-  tags = `
+  const tags = `
     <div id="menu" style="background: white; position: absolute; top: 10px; left: 10px; padding: 10px;">
       <label id ="month"></label><br>
       <input id="slider" type="range" min="0" max="11" step="1" value="0">
     </div>
   `;
   const fragement = document.createRange().createContextualFragment(tags);
+  const mapElement = map.getContainer();
   mapElement.appendChild(fragement);
   const slider = document.getElementById("slider");
   slider.onchange = () => filterBy(parseInt(slider.value));
