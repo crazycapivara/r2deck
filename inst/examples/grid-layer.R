@@ -5,4 +5,9 @@ data_url <- "https://raw.githubusercontent.com/uber-common/deck.gl-data/master/w
 sf_bike_parking <- jsonlite::read_json(data_url, simplifyVector = TRUE) %>%
   tibble::as.tibble()
 
-r2deck(script = "inst/scripts/grid-layer.js", data = sf_bike_parking, zoom = 11, pitch = 45)
+r2deck(
+  script = system.file("scripts/grid-layer.js", package = "r2deck"),
+  data = sf_bike_parking,
+  zoom = 11,
+  pitch = 45
+)

@@ -1,4 +1,5 @@
-render_comments <- c("/* # r2deck start", "# r2deck end */")
+# render_comments <- c("/* # r2deck start", "# r2deck end */")
+render_comments <- c("/**", " */")
 
 #' Render r2deck using header def in JavaScript file
 #'
@@ -22,6 +23,7 @@ make_r2deck_viz <- function(script = NULL) {
   }
 
   r2deck_def <- contents[(idx[1] + 1):(idx[2] - 1)] %>%
+    stringr::str_replace(" \\*", "") %>%
     yaml::yaml.load(eval.expr = TRUE)
   args <- r2deck_def[[1]]
   args$script <- script
