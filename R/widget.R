@@ -8,7 +8,8 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
     deckGLProperties = keys_to_camel_case(list(...)),
     props = list(
       df = inherits(data, "data.frame"),
-      mapboxAccessToken = Sys.getenv("MAPBOX_ACCESS_TOKEN")
+      mapboxAccessToken = Sys.getenv("MAPBOX_ACCESS_TOKEN"),
+      vizFuncName = get_random_str()
     )
   )
   htmlwidgets::createWidget(

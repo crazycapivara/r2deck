@@ -1,9 +1,5 @@
-import namesGenerator from "./names-generator";
-
-console.log(namesGenerator());
-
 export default function(widgetElement, width, height) {
-  const widget = {};
+  const widget = { };
 
   let deckGL = null;
 
@@ -12,6 +8,8 @@ export default function(widgetElement, width, height) {
     console.log(widgetData);
     mapboxgl.accessToken = widgetData.deckGLProperties.mapboxApiAccessToken = widgetData.props.mapboxAccessToken || "no-token";
 
+    const funcName = makeRandomName();
+    console.log(funcName);
     appendScript2Head(widgetData.script);
     if (widgetData.props.df) {
       widgetData.data = HTMLWidgets.dataframeToD3(widgetData.data);
@@ -42,7 +40,13 @@ function makeDeck(elementId, props) {
   return new deck.DeckGL(props);
 }
 
-function makeMapboxMap(elementId, props){
+function makeMapboxMap(elementId, props) {
   props.container = elementId;
   return new mapboxgl.Map(props);
+}
+
+function makeRandomName() {
+  const letters = "abcdefghijklmnopqrstuvwxyz";
+  return Array(8).fill()
+    .map(i => letters.charAt(Math.floor(Math.random() * letters.length))).join("");
 }

@@ -9,3 +9,8 @@ keys_to_camel_case <- function(x) {
 compact <- function(x) {
   x[!sapply(x, is.null)]
 }
+
+get_random_str <- function(len = 8) {
+  replicate(len, letters[sample(1:26, 1)]) %>%
+    paste0(collapse = "")
+}
