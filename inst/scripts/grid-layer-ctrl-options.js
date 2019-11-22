@@ -1,5 +1,3 @@
-"use strict";
-
 // Pass template via options
 
 /**

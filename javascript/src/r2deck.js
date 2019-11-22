@@ -36,7 +36,7 @@ function appendScript2Head(script) {
   script = script.replace(DEFAULT_FUNC_NAME, funcName);
   const scriptElement = document.createElement("script");
   scriptElement.type = "text/javascript";
-  scriptElement.text = script;
+  scriptElement.text = '"use strict";\n' + script;
   document.head.appendChild(scriptElement);
   return funcName;
 }

@@ -1,5 +1,3 @@
-"use strict";
-
 // https://docs.mapbox.com/mapbox-gl-js/example/timeline-animation/
 
 /**

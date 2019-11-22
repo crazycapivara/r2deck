@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * r2deck:
  *  data: !expr >
