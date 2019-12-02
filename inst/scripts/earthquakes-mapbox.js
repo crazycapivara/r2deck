@@ -12,7 +12,7 @@
  *  zoom: 0.5
  *  options: !expr list(months = month.name)
  */
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   // Create a month property value based on time, could also be done on R side
   data.features.forEach(feature =>  {
     feature.properties.month = new Date(feature.properties.time).getMonth();

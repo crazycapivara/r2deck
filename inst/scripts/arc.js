@@ -1,4 +1,4 @@
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   const arcLayer = new deck.ArcLayer({
     id: "arc-layer",
     data: data,

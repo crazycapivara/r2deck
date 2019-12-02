@@ -7,7 +7,7 @@
  *  lat: 32.86
  *  zoom: 9
  */
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   console.log({ map: map, data: data, options: options });
 
   const scatterplotLayer = new ScatterplotLayer({

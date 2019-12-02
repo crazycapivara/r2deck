@@ -5,7 +5,7 @@
  *  pitch: 45
  *  map_style: !expr get_carto_style("voyager")
  */
-function _r2deckViz(map, data) {
+function r2deckViz(map, data) {
   const ctrl = document.getElementsByClassName("mapboxgl-ctrl-top-left")[0];
   const slider = document.createElement("input");
   Object.assign(slider, {

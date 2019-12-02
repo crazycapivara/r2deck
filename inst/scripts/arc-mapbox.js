@@ -9,7 +9,7 @@
  *  pitch: 60
  *  map_style: !expr get_carto_style("dark-matter")
  */
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   const arcLayer = new MapboxLayer({
     id: "arc",
     type: ArcLayer,

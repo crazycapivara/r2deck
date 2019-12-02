@@ -6,7 +6,7 @@
  *  zoom: 11
  *  pitch: 35
  */
-function _r2deckViz(map, data) {
+function r2deckViz(map, data) {
   const source = {
     type: "geojson",
     data: data

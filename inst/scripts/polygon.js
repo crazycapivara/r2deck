@@ -1,4 +1,4 @@
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   const polygonLayer = new PolygonLayer({
     id: "nc",
     data: data,

@@ -1,6 +1,6 @@
 // global._r2deckWidget = global._r2deckWidget || { };
 
-const DEFAULT_FUNC_NAME = "_r2deckViz";
+const DEFAULT_FUNC_NAME = "r2deckViz";
 
 export default function(widgetElement, width, height) {
   const widget = { };

@@ -6,7 +6,7 @@
  *  lat: 20.7927
  *  zoom: 0.5
  */
-function _r2deckViz(map, data) {
+function r2deckViz(map, data) {
   data.forEach(feature =>  {
     feature.month = new Date(feature.time).getMonth();
   });

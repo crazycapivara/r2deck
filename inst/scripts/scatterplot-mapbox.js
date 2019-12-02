@@ -9,7 +9,7 @@
  *  map_style: !expr get_carto_style("voyager")
  *  # map_style: mapbox://styles/mapbox/light-v9
  */
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   const popup = new mapboxgl.Popup({
     closeButton: false
   });

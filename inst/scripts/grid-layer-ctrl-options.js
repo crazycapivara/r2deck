@@ -7,7 +7,7 @@
  *  pitch: 45
  *  map_style: !expr get_carto_style("voyager")
  */
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   const DEFAULT_CELL_SIZE = 150;
 
   let slider;

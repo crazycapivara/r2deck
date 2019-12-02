@@ -31,7 +31,7 @@ remotes::install_github("crazycapivara/r2deck")
 
 ## Getting Started
 
-To visualize your data you have to create a JavaScript file containing your visualization function called `_r2deckViz`. The JavaScript visualization function takes 3 parameters:
+To visualize your data you have to create a JavaScript file containing your visualization function called `r2deckViz`. The JavaScript visualization function takes 3 parameters:
 
 * `map` - The map object on which the layers will be rendered, either of type `deck.DeckGL` or `mapboxgl.Map`.
 This object is automatically created.
@@ -40,7 +40,7 @@ This object is automatically created.
 
 Furthermore, the libraries/variables `deck` and `mapboxgl` are available through the global context.
 
-The JavaScript file is then passed to the `r2deck` or `r2mapbox` function in R together with the data and some other parameters styling the map object.
+The JavaScript file is then passed to the `r2deck` or `r2mapbox` function in R together with the data and parameters to style the map object.
 
 So let's take a look at a basic example.
 
@@ -58,8 +58,8 @@ head(flights)
 Then create your visualization function to render an arc layer like this:
 
 ``` javascript
-/* arc.js */
-function _r2deckViz(map, data, options) {
+// arc.js
+function r2deckViz(map, data, options) {
   // Create an arc layer
   const arcLayer = new deck.ArcLayer({
     id: "arc-layer",
@@ -113,7 +113,7 @@ const polygonLayer = new PolygonLayer({
   id: "nc",
   data: data,
   getPolygon: data => data.geometry,
-  ...
+  // ...
 }
 ```
 
@@ -128,11 +128,11 @@ As a good starting point check the [deck.gl api documentation](https://deck.gl/#
 Basically you just need to define one or more layers using your data object that is passed via `r2deck` to your function and then add it to the map:
 
 ``` javascript
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   const gridLayer = new deck.GridLayer({
     id: "grid-layer",
     data: data,
-    ...
+    // ...
   });
   
   map.setProps({
