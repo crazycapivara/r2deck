@@ -1,4 +1,4 @@
-function _r2deckViz(map, data, options) {
+function r2deckViz(map, data, options) {
   console.log(data);
 
   const scatterplotLayer = new deck.ScatterplotLayer({
