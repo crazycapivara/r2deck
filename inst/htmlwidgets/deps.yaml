@@ -1,0 +1,11 @@
+deck.gl:
+  name: deck.gl
+  version: 7.3.4
+  src: htmlwidgets/dist/deck.gl
+  script: dist.min.js
+mapbox-gl:
+  name: mapbox-gl
+  version: 1.5.0
+  src: htmlwidgets/dist/mapbox-gl
+  script: mapbox-gl.js
+  stylesheet: mapbox-gl.css

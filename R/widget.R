@@ -1,5 +1,7 @@
 make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
-                        width = NULL, height = NULL, element_id = NULL, ...) {
+                        width = NULL, height = NULL, element_id = NULL, ..., deps = NULL) {
+  if (is.null(deps)) deps <- use_deps(c("deck.gl", "mapbox-gl"))
+
   widgetData <- list(
     script = readr::read_file(script),
     data = data,
@@ -18,6 +20,7 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
     width = width,
     height = height,
     package = "r2deck",
+    dependencies = deps,
     elementId = element_id
   )
 }
