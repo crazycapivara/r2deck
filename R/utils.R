@@ -27,3 +27,12 @@ use_deps <- function(dep_names) {
     do.call(htmltools::htmlDependency, dep)
   })
 }
+
+#' Show available deps
+#'
+#' @export
+available_deps <- function() {
+  deps <- system.file("htmlwidgets/deps.yaml", package = "r2deck") %>%
+    yaml::yaml.load_file()
+  lapply(deps, function(dep) c(version = dep$version))
+}
