@@ -14,7 +14,8 @@ Imports:
   magrittr,
   rstudioapi,
   yaml,
-  stringr
+  stringr,
+  htmltools
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
