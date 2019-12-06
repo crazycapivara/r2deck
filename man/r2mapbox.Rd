@@ -33,7 +33,7 @@ r2mapbox(script, data, lng = -122.45, lat = 37.8, zoom = 8,
 \item{...}{Additional properties (picking radius, ...) that are passed to the Deck class.}
 
 \item{deps}{(optional) Dependencies that will be loaded.
-See also \code{\link{available_deps}}, \code{\link{use_default_dependencies}} and \code{\link{use_h3}}.}
+See also \code{\link{available_deps}}, \code{\link{use_default_deps}} and \code{\link{use_h3}}.}
 }
 \description{
 Create a widget object using the Mapbox WebGL context

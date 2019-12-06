@@ -39,7 +39,7 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
 #' @param element_id (optional) The unique id of the widget.
 #' @param ... Additional properties (picking radius, ...) that are passed to the Deck class.
 #' @param deps (optional) Dependencies that will be loaded.
-#'   See also \code{\link{available_deps}}, \code{\link{use_default_dependencies}} and \code{\link{use_h3}}.
+#'   See also \code{\link{available_deps}}, \code{\link{use_default_deps}} and \code{\link{use_h3}}.
 #'
 #' @export
 r2deck <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style = get_carto_style(),
