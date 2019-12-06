@@ -38,7 +38,7 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
 #' @param height (optional) The height of the widget.
 #' @param element_id (optional) The unique id of the widget.
 #' @param ... Additional properties (picking radius, ...) that are passed to the Deck class.
-#' @param deps (optional) Dependencies that will be loaded.
+#' @param deps (optional) The dependencies that will be loaded.
 #'   See also \code{\link{available_deps}}, \code{\link{use_default_deps}} and \code{\link{use_h3}}.
 #'
 #' @export
