@@ -9,3 +9,8 @@ mapbox-gl:
   src: htmlwidgets/dist/mapbox-gl
   script: mapbox-gl.js
   stylesheet: mapbox-gl.css
+h3-js:
+  name: h3-js
+  version: 3.6.2
+  src: htmlwidgets/dist/h3-js
+  script: h3-js.umd.js

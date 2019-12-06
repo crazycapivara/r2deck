@@ -6,7 +6,7 @@
 \usage{
 r2deck(script, data, lng = -122.45, lat = 37.8, zoom = 8,
   map_style = get_carto_style(), options = NULL, width = NULL,
-  height = NULL, element_id = NULL, ...)
+  height = NULL, element_id = NULL, ..., deps = use_default_deps())
 }
 \arguments{
 \item{script}{The name of the JavaScript file containing the vizualisation function.}
@@ -30,6 +30,9 @@ r2deck(script, data, lng = -122.45, lat = 37.8, zoom = 8,
 \item{element_id}{(optional) The unique id of the widget.}
 
 \item{...}{Additional properties (picking radius, ...) that are passed to the Deck class.}
+
+\item{deps}{(optional) Dependencies that will be loaded.
+See also \code{\link{available_deps}}, \code{\link{use_default_dependencies}} and \code{\link{use_h3}}.}
 }
 \description{
 Create a widget object

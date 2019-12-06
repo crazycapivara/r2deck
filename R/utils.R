@@ -14,25 +14,3 @@ get_random_str <- function(len = 8) {
   replicate(len, letters[sample(1:26, 1)]) %>%
     paste0(collapse = "")
 }
-
-use_deps <- function(dep_names) {
-  deps <- system.file("htmlwidgets/deps.yaml", package = "r2deck") %>%
-    yaml::yaml.load_file()
-  if (!all(dep_names %in% names(deps))) {
-    stop("available deps [", paste(names(deps), collapse = ", "), "]")
-  }
-
-  lapply(deps[dep_names], function(dep) {
-    dep$src <- system.file(dep$src, package = "r2deck")
-    do.call(htmltools::htmlDependency, dep)
-  })
-}
-
-#' Show available deps
-#'
-#' @export
-available_deps <- function() {
-  deps <- system.file("htmlwidgets/deps.yaml", package = "r2deck") %>%
-    yaml::yaml.load_file()
-  lapply(deps, function(dep) c(version = dep$version))
-}

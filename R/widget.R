@@ -1,6 +1,6 @@
 make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
                         width = NULL, height = NULL, element_id = NULL, ..., deps = NULL) {
-  if (is.null(deps)) deps <- use_deps(c("deck.gl", "mapbox-gl"))
+  if (is.null(deps)) deps <- c("deck.gl", "mapbox-gl")
 
   widgetData <- list(
     script = readr::read_file(script),
@@ -20,7 +20,7 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
     width = width,
     height = height,
     package = "r2deck",
-    dependencies = deps,
+    dependencies = use_deps(deps),
     elementId = element_id
   )
 }
@@ -38,10 +38,13 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
 #' @param height (optional) The height of the widget.
 #' @param element_id (optional) The unique id of the widget.
 #' @param ... Additional properties (picking radius, ...) that are passed to the Deck class.
+#' @param deps (optional) Dependencies that will be loaded.
+#'   See also \code{\link{available_deps}}, \code{\link{use_default_dependencies}} and \code{\link{use_h3}}.
 #'
 #' @export
 r2deck <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style = get_carto_style(),
-                   options = NULL, width = NULL, height = NULL, element_id = NULL, ...) {
+                   options = NULL, width = NULL, height = NULL, element_id = NULL, ...,
+                   deps = use_default_deps()) {
   make_widget(
     script,
     data,
@@ -54,7 +57,8 @@ r2deck <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style 
     latitude = lat,
     zoom = zoom,
     mapStyle = map_style,
-    ...
+    ...,
+    deps = deps
   )
 }
 
@@ -63,7 +67,8 @@ r2deck <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style 
 #' @inheritParams r2deck
 #' @export
 r2mapbox <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style = get_carto_style("dark-matter"),
-                     options = NULL, width = NULL, height = NULL, element_id = NULL, ...) {
+                     options = NULL, width = NULL, height = NULL, element_id = NULL, ...,
+                     deps = use_default_deps()) {
   make_widget(
     script,
     data,
@@ -75,6 +80,7 @@ r2mapbox <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_styl
     center = c(lng, lat),
     zoom = zoom,
     style = map_style,
-    ...
+    ...,
+    deps = deps
   )
 }
