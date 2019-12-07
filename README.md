@@ -60,8 +60,8 @@ function r2deckViz(map, data, options) {
     data: data,
     getSourcePosition: data => [data.start_lon, data.start_lat],
     getTargetPosition: data => [data.end_lon, data.end_lat],
-    getSourceColor: data => [64, 255, 0],
-    getTargetColor: data => [0, 128, 200]
+    getSourceColor: [64, 255, 0],
+    getTargetColor: [0, 128, 200]
   });
 
   // Add the layer to the map
