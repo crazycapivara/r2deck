@@ -14,3 +14,9 @@ h3-js:
   version: 3.6.2
   src: htmlwidgets/dist/h3-js
   script: h3-js.umd.js
+carto-vl:
+  name: carto-vl
+  version: 1.4.2
+  src:
+    href: https://libs.cartocdn.com/carto-vl/v1.4.2/
+  script: carto-vl.min.js

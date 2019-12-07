@@ -6,7 +6,10 @@ use_deps <- function(dep_names) {
   }
 
   lapply(deps[dep_names], function(dep) {
-    dep$src <- system.file(dep$src, package = "r2deck")
+    if (is.na(dep$src["href"])) {
+      dep$src <- system.file(dep$src, package = "r2deck")
+    }
+
     do.call(htmltools::htmlDependency, dep)
   })
 }
