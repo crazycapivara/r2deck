@@ -28,7 +28,7 @@ template <- tags$div(
 
 
 r2deck(
-  script = "inst/scripts/grid-layer-ctrl-options.js",
+  script = system.file("scripts/grid-layer-ctrl-options.js", package = "r2deck"),
   data = "https://raw.githubusercontent.com/uber-common/deck.gl-data/master/website/sf-bike-parking.json",
   zoom = 12,
   pitch = 45,
