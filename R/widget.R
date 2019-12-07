@@ -1,6 +1,6 @@
 make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
                         width = NULL, height = NULL, element_id = NULL, ..., deps = NULL) {
-  if (is.null(deps)) deps <- c("deck.gl", "mapbox-gl")
+  if (is.null(deps)) deps <- use_default_deps()
 
   widgetData <- list(
     script = readr::read_file(script),
@@ -37,14 +37,13 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
 #' @param width (optional) The width of the widget.
 #' @param height (optional) The height of the widget.
 #' @param element_id (optional) The unique id of the widget.
-#' @param ... Additional properties (picking radius, ...) that are passed to the Deck class.
-#' @param deps (optional) The dependencies that will be loaded.
+#' @param ... Additional properties (picking radius, ...) that are passed to the \code{Deck} class.
+#' @param deps (optional, default: \code{\link{use_default_deps}}) The HTML dependencies that will be added to the widget.
 #'   See also \code{\link{available_deps}}, \code{\link{use_default_deps}} and \code{\link{use_h3}}.
 #'
 #' @export
 r2deck <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style = get_carto_style(),
-                   options = NULL, width = NULL, height = NULL, element_id = NULL, ...,
-                   deps = use_default_deps()) {
+                   options = NULL, width = NULL, height = NULL, element_id = NULL, ..., deps = NULL) {
   make_widget(
     script,
     data,
@@ -65,10 +64,10 @@ r2deck <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style 
 #' Create a widget object using the Mapbox WebGL context
 #'
 #' @inheritParams r2deck
+#' @param ... Additional properties that are passed to the \code{Map} class.
 #' @export
 r2mapbox <- function(script, data, lng = -122.45, lat = 37.8, zoom = 8, map_style = get_carto_style("dark-matter"),
-                     options = NULL, width = NULL, height = NULL, element_id = NULL, ...,
-                     deps = use_default_deps()) {
+                     options = NULL, width = NULL, height = NULL, element_id = NULL, ..., deps = NULL) {
   make_widget(
     script,
     data,
