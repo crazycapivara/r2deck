@@ -1,6 +1,6 @@
 read_deps <- function() {
   system.file("htmlwidgets/deps.yaml", package = "r2deck") %>%
-    yaml::yaml.load_file() %>%
+    yaml::read_yaml() %>%
     utils::modifyList(getOption("r2deck_deps", list()))
 }
 
