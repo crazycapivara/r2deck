@@ -1,6 +1,7 @@
 read_deps <- function() {
   system.file("htmlwidgets/deps.yaml", package = "r2deck") %>%
-    yaml::yaml.load_file()
+    yaml::yaml.load_file() %>%
+    utils::modifyList(getOption("r2deck_deps", list()))
 }
 
 use_deps <- function(dep_names) {
@@ -10,15 +11,23 @@ use_deps <- function(dep_names) {
   }
 
   lapply(deps[dep_names], function(dep) {
-    if (is.na(dep$src["href"])) {
-      dep$package <- "r2deck"
-    }
-
     do.call(htmltools::htmlDependency, dep)
   })
 }
 
-#' Show available deps
+#' Append dependencies
+#'
+#' Append further dependencies to the list of available dependencies, so that they can
+#'   be used by \code{\link{r2deck}} or \code{\link{r2mapbox}}.
+#'
+#' @param filename The name of the file containing the dependency definitions.
+#'
+#' @export
+append_deps <- function(filename) {
+  options(r2deck_deps = yaml::read_yaml(filename))
+}
+
+#' Show available dependencies
 #'
 #' @export
 available_deps <- function() {

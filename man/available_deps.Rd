@@ -2,10 +2,10 @@
 % Please edit documentation in R/deps.R
 \name{available_deps}
 \alias{available_deps}
-\title{Show available deps}
+\title{Show available dependencies}
 \usage{
 available_deps()
 }
 \description{
-Show available deps
+Show available dependencies
 }

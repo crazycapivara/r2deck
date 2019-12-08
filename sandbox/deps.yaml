@@ -1,0 +1,6 @@
+carto-vl:
+  name: carto-vl
+  version: 1.4.2
+  src:
+    href: https://libs.cartocdn.com/carto-vl/v1.4.2/
+  script: carto-vl.min.js
