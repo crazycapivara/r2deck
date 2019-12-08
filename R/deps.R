@@ -31,8 +31,7 @@ append_deps <- function(filename) {
 #'
 #' @export
 available_deps <- function() {
-  deps <- read_deps()
-  lapply(deps, function(dep) c(version = dep$version))
+  lapply(read_deps(), function(dep) c(version = dep$version))
 }
 
 #' Use default dependencies
