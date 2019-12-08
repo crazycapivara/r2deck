@@ -25,6 +25,7 @@ use_deps <- function(dep_names) {
 #' @export
 append_deps <- function(filename) {
   options(r2deck_deps = yaml::read_yaml(filename))
+  names(available_deps())
 }
 
 #' Show available dependencies
