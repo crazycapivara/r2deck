@@ -1,0 +1,40 @@
+---
+title: "r2deck"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(r2deck)
+data_url <- paste0(
+  "https://raw.githubusercontent.com/plotly/datasets/master/",
+  "2011_february_aa_flight_paths.csv"
+)
+flights <- data.table::fread(data_url)
+# knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+## R2DECK
+
+```{r2deck arc-layer, data=flights, lng=-87.6500523, lat=41.850033, zoom=3, pitch=45, width="100%"}
+function r2deckViz(map, data, options) {
+  const arcLayer = new deck.ArcLayer({
+    id: "arc-layer",
+    data: data,
+    getSourcePosition: data => [data.start_lon, data.start_lat],
+    getTargetPosition: data => [data.end_lon, data.end_lat],
+    getSourceColor: [64, 255, 0],
+    getTargetColor: [0, 128, 200]
+  });
+
+  map.setProps({
+    layers: [ arcLayer ]
+  });
+}
+```
