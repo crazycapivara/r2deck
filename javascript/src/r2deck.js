@@ -10,7 +10,8 @@ export default function(widgetElement, width, height) {
   widget.renderValue = function(widgetData) {
     widgetData.options = widgetData.options || { };
     console.log(widgetData);
-    mapboxgl.accessToken = widgetData.deckGLProperties.mapboxApiAccessToken = widgetData.props.mapboxAccessToken || "no-token";
+    mapboxgl.accessToken = widgetData.deckGLProperties.mapboxApiAccessToken =
+      widgetData.props.mapboxAccessToken || "no-token";
 
     const funcName = appendScript2Head(widgetData.script);
     console.log(funcName);
@@ -18,10 +19,8 @@ export default function(widgetElement, width, height) {
       widgetData.data = HTMLWidgets.dataframeToD3(widgetData.data);
     }
 
-    deckGL = widgetData.webGLContext === "mapbox" ?
-      makeMapboxMap(widgetElement.id, widgetData.deckGLProperties) :
-      makeDeck(widgetElement.id, widgetData.deckGLProperties);
-    const _render = global[funcName]; // global._r2deckViz;
+    deckGL = contexts[widgetData.webGLContext](widgetElement.id, widgetData.deckGLProperties);
+    const _render = global[funcName];
     _render(deckGL, widgetData.data, widgetData.options);
   };
 
@@ -41,15 +40,16 @@ function appendScript2Head(script) {
   return funcName;
 }
 
-function makeDeck(elementId, props) {
-  props.container = elementId;
-  return new deck.DeckGL(props);
-}
-
-function makeMapboxMap(elementId, props) {
-  props.container = elementId;
-  return new mapboxgl.Map(props);
-}
+const contexts = {
+  deck: function(elementId, props) {
+    props.container = elementId;
+    return new deck.DeckGL(props);
+  },
+  mapbox: function(elementId, props) {
+    props.container = elementId;
+    return new mapboxgl.Map(props);
+  }
+};
 
 function makeRandomName() {
   const letters = "abcdefghijklmnopqrstuvwxyz";

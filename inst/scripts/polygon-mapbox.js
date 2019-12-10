@@ -5,6 +5,8 @@
  *  lat: -37.81211
  *  zoom: 11
  *  pitch: 35
+ *  # Do not add 'deck.gl' HTML dependency
+ *  deps: mapbox-gl
  */
 function r2deckViz(map, data) {
   const source = {

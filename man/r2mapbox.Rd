@@ -6,7 +6,7 @@
 \usage{
 r2mapbox(script, data, lng = -122.45, lat = 37.8, zoom = 8,
   map_style = get_carto_style("dark-matter"), options = NULL,
-  width = NULL, height = NULL, element_id = NULL, ...)
+  width = NULL, height = NULL, element_id = NULL, ..., deps = NULL)
 }
 \arguments{
 \item{script}{The name of the JavaScript file containing the vizualisation function.}
@@ -29,7 +29,10 @@ r2mapbox(script, data, lng = -122.45, lat = 37.8, zoom = 8,
 
 \item{element_id}{(optional) The unique id of the widget.}
 
-\item{...}{Additional properties (picking radius, ...) that are passed to the Deck class.}
+\item{...}{Additional properties that are passed to the \code{Map} class.}
+
+\item{deps}{(optional, default: \code{\link{use_default_deps}}) The HTML dependencies that will be added to the widget.
+See also \code{\link{available_deps}}, \code{\link{use_default_deps}} and \code{\link{use_h3}}.}
 }
 \description{
 Create a widget object using the Mapbox WebGL context

@@ -1,0 +1,25 @@
+deck.gl:
+  name: deck.gl
+  version: 7.3.4
+  src: htmlwidgets/dist/deck.gl
+  script: dist.min.js
+  package: r2deck
+mapbox-gl:
+  name: mapbox-gl
+  version: 1.5.0
+  src: htmlwidgets/dist/mapbox-gl
+  script: mapbox-gl.js
+  stylesheet: mapbox-gl.css
+  package: r2deck
+h3-js:
+  name: h3-js
+  version: 3.6.2
+  src: htmlwidgets/dist/h3-js
+  script: h3-js.umd.js
+  package: r2deck
+#carto-vl:
+#  name: carto-vl
+#  version: 1.4.2
+#  src:
+#    href: https://libs.cartocdn.com/carto-vl/v1.4.2/
+#  script: carto-vl.min.js
