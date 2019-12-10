@@ -4,6 +4,11 @@ read_deps <- function() {
     utils::modifyList(getOption("r2deck_deps", list()))
 }
 
+#' Use dependencies
+#'
+#' @param dep_names The names of the dependencies that should be used (see \code{\link{available_deps}}).
+#'
+#' @export
 use_deps <- function(dep_names) {
   deps <- read_deps()
   if (!all(dep_names %in% names(deps))) {

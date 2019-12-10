@@ -2,6 +2,8 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
                         width = NULL, height = NULL, element_id = NULL, ..., deps = NULL) {
   if (is.null(deps)) deps <- use_default_deps()
 
+  if (inherits(deps, "character")) deps <- use_deps(deps)
+
   widgetData <- list(
     script = readr::read_file(script),
     data = data,
@@ -20,7 +22,7 @@ make_widget <- function(script, data, web_gl_context = "deck", options = NULL,
     width = width,
     height = height,
     package = "r2deck",
-    dependencies = use_deps(deps),
+    dependencies = deps,
     elementId = element_id
   )
 }
